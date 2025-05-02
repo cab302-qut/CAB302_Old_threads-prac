@@ -83,21 +83,9 @@ public class MainController {
     }
 
     public void onChatButtonClicked(ActionEvent actionEvent) {
-        String prompt = chatTextField.getText();
+        //        String prompt = chatTextField.getText();
+        // add your code here to query an Ollama REST endpoint
 
-        class MyResponseListener implements ResponseListener {
-
-            @Override
-            public void onResponseReceived(OllamaResponse response) {
-                chatTextArea.setText(response.getResponse());
-            }
-        };
-
-        String apiURL = "http://127.0.0.1:11434/api/generate/";
-        String model = "llama3.2"; //replace with the model you are using
-
-        OllamaResponseFetcher fetcher = new OllamaResponseFetcher(apiURL);
-        fetcher.fetchAsynchronousOllamaResponse(model, prompt, new MyResponseListener());
 
 
     }

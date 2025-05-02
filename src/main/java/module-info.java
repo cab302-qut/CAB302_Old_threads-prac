@@ -3,6 +3,7 @@ module com.example.javafxthread {
     requires javafx.fxml;
     requires com.google.gson;
     requires java.net.http;
+    requires java.logging;
 
 
     opens com.example.javafxthread to javafx.fxml;

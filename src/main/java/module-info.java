@@ -14,4 +14,7 @@ module com.example.javafxthread {
     opens com.example.javafxthread.exercise1 to javafx.fxml;
     exports com.example.javafxthread.exercise2;
     opens com.example.javafxthread.exercise2 to javafx.fxml;
+    opens com.example.javafxthread.exercise3.ollama to javafx.fxml;
+    exports com.example.javafxthread.exercise3.ollama;
+
 }

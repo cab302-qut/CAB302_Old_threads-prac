@@ -4,10 +4,10 @@ import com.google.gson.Gson;
 
 public class OllamaResponse {
 
-    private String model;
-    private String created_at;
-    private String response;
-    private String done;
+    public String model;
+    public String created_at;
+    public String response;
+    public String done;
 
 
     public String getResponse() {

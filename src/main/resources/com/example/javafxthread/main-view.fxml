@@ -84,7 +84,7 @@
               <VBox>
                   <TextArea fx:id="chatTextArea" editable="false" layoutX="14.0" layoutY="63.0" prefHeight="221.0" prefWidth="574.0" />
                   <TextField fx:id="chatTextField" layoutX="13.0" layoutY="38.0" prefHeight="26.0" prefWidth="119.0" promptText="Search by name..." />
-                  <Button fx:id="chatButton" layoutX="140.0" layoutY="38.0" mnemonicParsing="false" onAction="#onChatButtonClicked" text="Search" />
+                  <Button fx:id="chatButton" layoutX="140.0" layoutY="38.0" mnemonicParsing="false" onAction="#onChatButtonClicked" text="Chat" />
               </VBox>
 
           </content>

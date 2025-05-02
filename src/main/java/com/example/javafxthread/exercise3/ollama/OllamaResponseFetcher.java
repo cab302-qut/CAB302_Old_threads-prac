@@ -114,23 +114,7 @@ public class OllamaResponseFetcher {
         return fetchOllamaResponse(simpleJsonObj);
     }
 
-    public OllamaResponse fetchOllamaResponse(String model, String prompt, String image) {
-    // tested with model llava v1.6 - for documentation on how to format the JSON request https://ollama.com/library/llava
-
-        String imageContents = JollamaImageUtil.imageToBase64(image);
-        String simpleJsonObj = String.format("""
-                {
-                  "model": "%s",
-                  "prompt": "%s",
-                  "stream": false,
-                  "images": ["%s"]
-                }
-               """, model, prompt, imageContents);
-
-        return fetchOllamaResponse(simpleJsonObj);
-    }
-
-    public void fetchAsynchronousOllamaResponse(String model, String prompt, ResponseListener responseListener) {
+   public void fetchAsynchronousOllamaResponse(String model, String prompt, ResponseListener responseListener) {
         Thread thread = new Thread(){
             public void run(){
                 OllamaResponse response = fetchOllamaResponse(model, prompt);

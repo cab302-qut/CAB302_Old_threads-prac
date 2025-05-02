@@ -3,6 +3,9 @@ package com.example.javafxthread;
 import com.example.javafxthread.exercise2.dummyjson.User;
 import com.example.javafxthread.exercise1.MessageScheduler;
 import com.example.javafxthread.exercise2.RemoteUsersManager;
+import com.example.javafxthread.exercise3.ollama.OllamaResponse;
+import com.example.javafxthread.exercise3.ollama.OllamaResponseFetcher;
+import com.example.javafxthread.exercise3.ollama.ResponseListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -25,6 +28,10 @@ public class MainController {
     private ListView<User> remoteListView;
     @FXML
     private ListView<User> localListView;
+    @FXML
+    private TextField chatTextField;
+    @FXML
+    private TextArea chatTextArea;
 
     private MessageScheduler messageScheduler;
     private RemoteUsersManager remoteUsersManager;
@@ -76,6 +83,22 @@ public class MainController {
     }
 
     public void onChatButtonClicked(ActionEvent actionEvent) {
+        String prompt = chatTextField.getText();
+
+        class MyResponseListener implements ResponseListener {
+
+            @Override
+            public void onResponseReceived(OllamaResponse response) {
+                chatTextArea.setText(response.getResponse());
+            }
+        };
+
+        String apiURL = "http://127.0.0.1:11434/api/generate/";
+        String model = "llama3.2"; //replace with the model you are using
+
+        OllamaResponseFetcher fetcher = new OllamaResponseFetcher(apiURL);
+        fetcher.fetchAsynchronousOllamaResponse(model, prompt, new MyResponseListener());
+
 
     }
 }

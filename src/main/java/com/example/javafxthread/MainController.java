@@ -3,6 +3,7 @@ package com.example.javafxthread;
 import com.example.javafxthread.exercise2.dummyjson.User;
 import com.example.javafxthread.exercise1.MessageScheduler;
 import com.example.javafxthread.exercise2.RemoteUsersManager;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 /**
@@ -72,5 +73,9 @@ public class MainController {
         if (selectedUser != null && !localListView.getItems().contains(selectedUser)) {
             localListView.getItems().add(selectedUser);
         }
+    }
+
+    public void onChatButtonClicked(ActionEvent actionEvent) {
+
     }
 }
